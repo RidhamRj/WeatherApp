@@ -47,7 +47,7 @@ function Weather() {
         units: "metric",
       },
       headers: {
-        "x-rapidapi-key": "b5dc204a21mshf6a6ec9b8a55132p1b1cb9jsn7e1d1a8256a4",
+        "x-rapidapi-key": "223ee20b7e34618e9a383d72ea51960a",
         "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
       },
     };
