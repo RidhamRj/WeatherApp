@@ -36,19 +36,41 @@ function Weather() {
     determineImage();
   }, [weatherInfo]);
 
+  // const fetchWeatherInfo = (e) => {
+  //   e?.preventDefault();
+
+  //   const options = {
+  //     method: "GET",
+  //     url: "https://community-open-weather-map.p.rapidapi.com/weather",
+  //     params: {
+  //       q: inputRef.current.value || "London",
+  //       units: "metric",
+  //     },
+  //     headers: {
+  //       "x-rapidapi-key": "223ee20b7e34618e9a383d72ea51960a",
+  //       "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+  //     },
+  //   };
+
+  //   axios
+  //     .request(options)
+  //     .then((response) => {
+  //       setWeatherInfo(response.data);
+  //     })
+  //     .catch(() => {
+  //       alert("Location not found");
+  //     });
+  // };
   const fetchWeatherInfo = (e) => {
     e?.preventDefault();
 
     const options = {
       method: "GET",
-      url: "https://community-open-weather-map.p.rapidapi.com/weather",
+      url: "https://api.openweathermap.org/data/2.5/weather", // Notice the URL is relative
       params: {
-        q: inputRef.current.value || "London",
+        q: inputRef.current.value|| "London",
         units: "metric",
-      },
-      headers: {
-        "x-rapidapi-key": "223ee20b7e34618e9a383d72ea51960a",
-        "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
+        appid: "35a49b65d826425600963051d1ce7242",
       },
     };
 
@@ -61,7 +83,6 @@ function Weather() {
         alert("Location not found");
       });
   };
-
   const determineImage = () => {
     setImage(
       `http://openweathermap.org/img/wn/${weatherInfo?.weather[0].icon}@2x.png`
